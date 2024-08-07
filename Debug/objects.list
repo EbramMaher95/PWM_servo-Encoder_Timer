@@ -8,6 +8,8 @@
 "./Drivers/ARM_Drivers/Delay_Micros/dwt_stm32_delay.o"
 "./Drivers/Device_Drivers/HD44780_LCD/HD44780_LCD.o"
 "./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o"
+"./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.o"
+"./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc_ex.o"
 "./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o"
 "./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.o"
 "./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.o"

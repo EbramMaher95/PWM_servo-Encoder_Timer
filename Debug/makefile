@@ -36,37 +36,37 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := Timer-PWM-bonus
+BUILD_ARTIFACT_NAME := Timer-PWM-ADC
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-Timer-PWM-bonus.elf \
+Timer-PWM-ADC.elf \
 
 MAP_FILES += \
-Timer-PWM-bonus.map \
+Timer-PWM-ADC.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-Timer-PWM-bonus.list \
+Timer-PWM-ADC.list \
 
 OBJCOPY_HEX += \
-Timer-PWM-bonus.hex \
+Timer-PWM-ADC.hex \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: Timer-PWM-bonus.elf secondary-outputs
+main-build: Timer-PWM-ADC.elf secondary-outputs
 
 # Tool invocations
-Timer-PWM-bonus.elf Timer-PWM-bonus.map: $(OBJS) $(USER_OBJS) C:\Users\Perom\STM32CubeIDE\workspace_1.12.1\Timer-PWM-bonus\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "Timer-PWM-bonus.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\Perom\STM32CubeIDE\workspace_1.12.1\Timer-PWM-bonus\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Timer-PWM-bonus.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Timer-PWM-ADC.elf Timer-PWM-ADC.map: $(OBJS) $(USER_OBJS) C:\Users\Perom\STM32CubeIDE\workspace_1.12.1\Timer-PWM-ADC\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "Timer-PWM-ADC.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\Perom\STM32CubeIDE\workspace_1.12.1\Timer-PWM-ADC\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Timer-PWM-ADC.map" -Wl,--gc-sections -static -u _printf_float --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -75,19 +75,19 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-Timer-PWM-bonus.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "Timer-PWM-bonus.list"
+Timer-PWM-ADC.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "Timer-PWM-ADC.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-Timer-PWM-bonus.hex: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objcopy  -O ihex $(EXECUTABLES) "Timer-PWM-bonus.hex"
+Timer-PWM-ADC.hex: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objcopy  -O ihex $(EXECUTABLES) "Timer-PWM-ADC.hex"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) Timer-PWM-bonus.elf Timer-PWM-bonus.hex Timer-PWM-bonus.list Timer-PWM-bonus.map default.size.stdout
+	-$(RM) Timer-PWM-ADC.elf Timer-PWM-ADC.hex Timer-PWM-ADC.list Timer-PWM-ADC.map default.size.stdout
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_HEX)
